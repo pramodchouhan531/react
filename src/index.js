@@ -1,12 +1,14 @@
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Home from './route'
+import AddUser from "./Adduser";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Home/>
+      <AddUser/>
   </React.StrictMode>,
   document.getElementById('root')
 );
