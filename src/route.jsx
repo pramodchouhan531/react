@@ -42,7 +42,7 @@ export default function Home() {
 
                 </ul>
 
-                <Switch>
+              
 
                     <Route exact path='/' component={Users}></Route>
 
@@ -52,8 +52,7 @@ export default function Home() {
 
                     <Route exact path='/Posts' component={Posts}></Route>
 
-                </Switch>
-
+             
             </div>
 
         </Router>
