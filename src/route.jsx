@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from './axios';
-import { BrowserRouter as Router, Route, Link, Switch, Routes } from 'react-router-dom';
+import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
 import Users from './users';
 import Comments from './comments';
 import Todos from './todo';
@@ -18,28 +18,26 @@ export default function Home() {
 
                  
 
-                <Link to="/Todos">comments</Link><br />
+                <Link to="/todos">comments</Link><br />
 
 
 
-                <Link to="/Comments">Todo</Link><br />
+                <Link to="/comments">Todo</Link><br />
 
 
-                <Link to="/Posts">Post</Link><br />
+                <Link to="/posts">Post</Link><br />
 
 
                 </ul>
               
+           
+                 <Route exact path='/' component={Users}/>
+                 <Route exact path='/todos' component={Todos}/>
+                 <Route exact path='/comments' component={Comments}/>
+                 <Route exact path='/posts' component={Posts}/>
 
-                 <Route exact path='/' element={<Users/>}></Route>
 
-                 <Route exact path='/Todos' element={<Todos/>}></Route>
-
-                 <Route exact path='/Comments' element={<Comments/>}></Route>
-
-                 <Route exact path='/Posts' element={<Posts/>}></Route>
-                
-
+             
 
             </Router>
         </div>
