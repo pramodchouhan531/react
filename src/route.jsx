@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import axios from './axios';
+import { BrowserRouter as Router, Route, Link, Switch, Routes } from 'react-router-dom';
 import Users from './users';
 import Comments from './comments';
 import Todos from './todo';
@@ -10,53 +10,39 @@ import './App.css';
 export default function Home() {
 
     return (
+        <div>
+            <Router>
 
-        <Router>
+            <ul>
+                <Link to="/">users</Link><br />
 
-            <div className="App">
+                 
 
-                <ul className="App-header">
-                    <li>
-
-                        <Link to="/">users</Link>
-
-                    </li>
+                <Link to="/Todos">comments</Link><br />
 
 
-                    <li>
 
-                        <Link to="/Todos">comments</Link>
+                <Link to="/Comments">Todo</Link><br />
 
-                    </li>
-                    <li>
 
-                        <Link to="/Comments">Todo</Link>
+                <Link to="/Posts">Post</Link><br />
 
-                    </li>
-
-                    <li>
-
-                        <Link to="/Posts">Post</Link>
-
-                    </li>
 
                 </ul>
-
               
 
-                    <Route exact path='/' component={Users}></Route>
+                 <Route exact path='/' element={<Users/>}></Route>
 
-                    <Route exact path='/Todos' component={Todos}></Route>
+                 <Route exact path='/Todos' element={<Todos/>}></Route>
 
-                    <Route exact path='/Comments' component={Comments}></Route>
+                 <Route exact path='/Comments' element={<Comments/>}></Route>
 
-                    <Route exact path='/Posts' component={Posts}></Route>
+                 <Route exact path='/Posts' element={<Posts/>}></Route>
+                
 
-             
-            </div>
 
-        </Router>
-
+            </Router>
+        </div>
     );
 
 }

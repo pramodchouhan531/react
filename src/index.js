@@ -4,11 +4,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './route'
-import AddUser from "./Adduser";
+import AddUser from "./Adduser"
 ReactDOM.render(
   <React.StrictMode>
+    
       <Home/>
-      <AddUser/>
+      
+
   </React.StrictMode>,
   document.getElementById('root')
 );
