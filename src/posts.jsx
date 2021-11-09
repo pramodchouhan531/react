@@ -1,6 +1,6 @@
 import axios from './axios';
 import React, { useEffect, useState } from "react";
-
+import { useParams } from "react-router";
 
 
 export default function Posts() {
@@ -17,14 +17,15 @@ export default function Posts() {
     
     },[])
     if(!user)return null;
-    console.log('this',user)
+    console.log('this post',user)
 
     return (
         <div>
             {user.map(ele=>{
                 return (
                 <div>
-                   <li key={ele.id}>{ele.title}</li>
+                  <li key={ele.id}>{ele.body}</li> 
+                                   
                 </div>
                  
             )})}

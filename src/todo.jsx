@@ -2,7 +2,7 @@ import axios from './axios';
 import React, { useEffect, useState } from "react";
 
 export default function Todos() {
-
+alert("tdods")
     const [user, setuser] = useState(null)
     useEffect(() => {
         const loaduser = async () => {
@@ -20,7 +20,8 @@ export default function Todos() {
             {user.map(ele=>{
                 return (
                 <div>
-                  <li key={ele.id}>{ele.title}</li>                   
+                  <li key={ele.id}>{ele.title}</li> 
+                        
                 </div>
                  
             )})}

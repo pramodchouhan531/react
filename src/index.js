@@ -6,9 +6,9 @@ import Home from './route'
 import AddUser from "./Adduser"
 ReactDOM.render(
   <React.StrictMode>
-    
+     
       <Home/>
-      
+    
 
   </React.StrictMode>,
   document.getElementById('root')
