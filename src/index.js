@@ -4,11 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './route'
 import AddUser from "./Adduser"
+import Posts from './posts';
 ReactDOM.render(
   <React.StrictMode>
      
       <Home/>
-    
+      
 
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,13 +1,11 @@
 import React from 'react';
-import axios from './axios';
 import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
 import Users from './users';
 import Comments from './comments';
 import Todos from './todo';
 import Posts from './posts';
 import './App.css';
-import Userview from './userview';
-
+import EditUser from './edituser';
 export default function Home() {
 
     return (
@@ -37,7 +35,8 @@ export default function Home() {
                  <Route exact path='/comments' component={Comments}/>
                  <Route exact path='/posts' component={Posts}/>
                  <Route exact path="/users/:id" component={Posts}/>
-                 <Route exact path="/users/:id" component={Todos}/>
+                 <Route exact path="/Todos/:id" component={Todos}/>
+                 <Route exact path="/users/edit/:id" component={EditUser}/>
              
 
             </Router>

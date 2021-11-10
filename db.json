@@ -1,26 +1,10 @@
 {
   "users": [
     {
-      "name": "Leanne Heen",
-      "username": "Bret",
-      "email": "Sincere@april.biz",
-      "address": {
-        "street": "Kulas Light",
-        "suite": "Apt. 556",
-        "city": "Gwenborough",
-        "zipcode": "92998-3874",
-        "geo": {
-          "lat": "-37.3159",
-          "lng": "81.1496"
-        }
-      },
-      "phone": "1-770-736-8031 x56442",
-      "website": "hildegard.org",
-      "company": {
-        "name": "Romaguera-Crona",
-        "catchPhrase": "Multi-layered client-server neural-net",
-        "bs": "harness real-time e-markets"
-      },
+      "name": "sachin",
+      "username": "panwar",
+      "email": "sachinanwar@gsmi.com",
+      "address": "sanawda",
       "id": 1
     },
     {
@@ -432,6 +416,20 @@
       "email": "pc@gmail.com",
       "address": "safas",
       "id": 39
+    },
+    {
+      "name": "afcsd",
+      "username": "sdfasd",
+      "email": "pramod@123.xno",
+      "address": "FSD",
+      "id": 40
+    },
+    {
+      "name": "VIJAY",
+      "username": "VIAY12",
+      "email": "V@G.VOM",
+      "address": "DG",
+      "id": 41
     }
   ],
   "todos": [

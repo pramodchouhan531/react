@@ -1,6 +1,7 @@
 import axios from './axios';
 import React, { useEffect, useState } from "react";
 import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
+import AddUser from './Adduser';
 
 export default function Users() {
 
@@ -19,17 +20,20 @@ export default function Users() {
 
     return (
         <div>
-            {user.map(ele=>{
+            {user.map((user,index)=>{
                 return (
                 <div>
-                 <li>{ele.name}</li><Link to='/users/${ele.id}'>POST</Link><Link to="/user/${ele.id}">comment</Link>
-
+                 <li>{user.id}</li>
+                 <li>{user.name}</li><Link to={`/users/${user.id}`}>POST</Link><br />
+                 <Link to={`/todos/${user.id}`}>Todos</Link><br />
+                 <Link to={`/users/edit/${user.id}`}>Edit</Link>
+         
                    
                    
                 </div>
-                 
+             
             )})}
-            
+            <AddUser/>  
         </div>
     )
 }

@@ -6,29 +6,22 @@ import { useParams } from "react-router";
 export default function Posts() {
 
     const [user, setuser] = useState(null)
+    const {id} = useParams();
     useEffect(() => {
         const loaduser = async () => {
-            const res = await axios.get('/posts')
+            const res = await axios.get(`/posts/${id}`)
             setuser(res.data)
       
         }
         
-     loaduser();
+    loaduser();
     
     },[])
     if(!user)return null;
-    console.log('this post',user)
 
     return (
         <div>
-            {user.map(ele=>{
-                return (
-                <div>
-                  <li key={ele.id}>{ele.body}</li> 
-                                   
-                </div>
-                 
-            )})}
+            <h1>{user.title}</h1>
         </div>
     )
 }
