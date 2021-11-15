@@ -1,5 +1,6 @@
+import { GET_USERS } from "../actions/actiontye";
 const initialstate ={
-   usres:[],
+   users:[],
    user:{},
    loading:false
   };
@@ -7,7 +8,7 @@ const initialstate ={
 
 export default function usersReducers(state=initialstate,action){
     switch (action.type) {
-        case types.GET_USERS:
+        case GET_USERS:
           return {
             ...state,
             usres:action.payload,

@@ -34,8 +34,8 @@ export default function Home() {
                  <Route exact path='/todos' component={Todos}/>
                  <Route exact path='/comments' component={Comments}/>
                  <Route exact path='/posts' component={Posts}/>
-                 <Route exact path="/users/:id" component={Posts}/>
-                 <Route exact path="/Todos/:id" component={Todos}/>
+                 <Route exact path="/users/:user_id" component={Posts}/>
+                 <Route exact path="/Todos/:u_id" component={Todos}/>
                  <Route exact path="/users/edit/:id" component={EditUser}/>
              
 

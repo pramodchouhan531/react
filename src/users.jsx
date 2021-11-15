@@ -2,27 +2,30 @@ import axios from './axios';
 import React, { useEffect, useState } from "react";
 import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
 import AddUser from './Adduser';
-
-export default function Users() {
-
-    const [user, setuser] = useState(null)
+import { useSelector, useDispatch} from 'react-redux';
+import { getusers } from './actions';
+export default function Users(props) {
+     const users = useSelector(state=>state.users)
+     const dispatch = useDispatch();
+ 
+//    const [user, setuser] = useState(null)
     useEffect(() => {
         const loaduser = async () => {
             const res = await axios.get('/users')
-            setuser(res.data)
+            dispatch(getusers(res.data))
+            console.log("this",props.users)
       
         }
         
      loaduser();
 
     },[])
-    if(!user)return null;
-
+    const {users}=props
     return (
         <div>
-            {user.map((user,index)=>{
+            {users.map((user,index)=>{
                 return (
-                <div>
+                <div>   
                  <li>{user.id}</li>
                  <li>{user.name}</li>
                  <button><Link to={`/users/${user.id}`}>POST</Link></button><br />
