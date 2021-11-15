@@ -24,9 +24,10 @@ export default function Users() {
                 return (
                 <div>
                  <li>{user.id}</li>
-                 <li>{user.name}</li><Link to={`/users/${user.id}`}>POST</Link><br />
-                 <Link to={`/todos/${user.id}`}>Todos</Link><br />
-                 <Link to={`/users/edit/${user.id}`}>Edit</Link>
+                 <li>{user.name}</li>
+                 <button><Link to={`/users/${user.id}`}>POST</Link></button><br />
+                 <button><Link to={`/todos/${user.id}`}>Todos</Link></button><br />
+               <button> <Link to={`/users/edit/${user.id}`}>Edit</Link></button>
          
                    
                    

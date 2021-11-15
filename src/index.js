@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './route'
+import { Provider } from 'react';
 import AddUser from "./Adduser"
 import Posts from './posts';
+import store from './store';
 ReactDOM.render(
   <React.StrictMode>
-     
+    <Provider store={store}>
       <Home/>
-      
+    </Provider>
 
   </React.StrictMode>,
   document.getElementById('root')

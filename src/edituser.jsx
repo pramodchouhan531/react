@@ -22,8 +22,8 @@ const EditUser = () => {
   }, []);
 
   const onSubmit = async e => {
-    
-    await axios.put(`/users/${id}`,user);
+
+    await axios.put(`/users/${id}`, user);
     history.push("/");
     e.preventDefault();
   };
@@ -34,22 +34,22 @@ const EditUser = () => {
   };
   return (
     <Form onSubmit={onSubmit}>
-    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    <Form.Label>Name</Form.Label>
-    <Form.Control type="text" name='name'value={name} placeholder="name" onChange={e => onInputChange(e)}/>
-    </Form.Group>
-    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-      <Form.Label>username</Form.Label>
-      <Form.Control type="text" name="username" value={username} onChange={e => onInputChange(e)}/>
-    </Form.Group>
-   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-      <Form.Label>Email address</Form.Label>
-      <Form.Control type="email" name="email" value={email} onChange={e => onInputChange(e)} placeholder="name@example.com" />
-    </Form.Group><Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-      <Form.Label>address</Form.Label>
-      <Form.Control type="text" name="address" value={address} onChange={e => onInputChange(e)}/>
-    </Form.Group>
-    <Button type="submit" variant="primary">Editusers</Button>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Name</Form.Label>
+        <Form.Control type="text" name='name' value={name} placeholder="name" onChange={e => onInputChange(e)} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>username</Form.Label>
+        <Form.Control type="text" name="username" value={username} onChange={e => onInputChange(e)} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" name="email" value={email} onChange={e => onInputChange(e)} placeholder="name@example.com" />
+      </Form.Group><Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>address</Form.Label>
+        <Form.Control type="text" name="address" value={address} onChange={e => onInputChange(e)} />
+      </Form.Group>
+      <Button type="submit" variant="primary">Editusers</Button>
     </Form>
   );
 };
