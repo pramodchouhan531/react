@@ -14,30 +14,15 @@ export default function Home() {
 
             <ul>
                 <Link to="/">users</Link><br />
-
-                 
-
-                <Link to="/todos">comments</Link><br />
-
-
-
-                <Link to="/comments">Todo</Link><br />
-
-
-                <Link to="/posts">Post</Link><br />
-
-
-                </ul>
-              
-           
+            </ul>
                  <Route exact path='/' component={Users}/>
                  <Route exact path='/todos' component={Todos}/>
                  <Route exact path='/comments' component={Comments}/>
                  <Route exact path='/posts' component={Posts}/>
-                 <Route exact path="/users/:user_id" component={Posts}/>
-                 <Route exact path="/Todos/:u_id" component={Todos}/>
+                 <Route exact path="/users/:userId" component={Posts}/>
+                 <Route exact path="/Todos/:userId" component={Todos}/>
                  <Route exact path="/users/edit/:id" component={EditUser}/>
-             
+                 <Route exact path="/posts/:postId" component={Comments}></Route>
 
             </Router>
         </div>

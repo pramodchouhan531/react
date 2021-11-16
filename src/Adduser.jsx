@@ -1,28 +1,35 @@
 import React, { useState } from "react";
 import axios from './axios';
 import { Button, Form } from 'react-bootstrap';
-const AddUser = () => {
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { AddUser } from "./actions";
+const Addperson = () => {
 
-  const [user, setUser] = useState({
-    name: "",
-    username: "",
-    email: "",
-    address: "",
-  });
-
-  const { name, username, email, address } = user;
+  // const [user, setUser] = useState({
+  //   name: "",
+  //   username: "",
+  //   email: "",
+  //   address: "",
+  // });
+  const items = useSelector(state => state.items)
+  console.log(items)
+  const dispatch = useDispatch()
+  const { name, username, email, address } = items;
   const onInputChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    dispatch(AddUser({ ...items, [e.target.name]: e.target.value }));
   };
 
   const onSubmit = async e => {
-    await axios.post("/users", user);
+    const data=await axios.post("/users",{...items});
     e.preventDefault();
+    console.log(data)
 
   };
-  console.log(user)
+  //console.log(items)
   return (
     <>
+ 
       <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Name</Form.Label>
@@ -45,4 +52,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default Addperson;

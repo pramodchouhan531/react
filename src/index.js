@@ -2,15 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Home from './route'
-import AddUser from "./Adduser"
-import Posts from './posts';
-import store from "./store"
+import Home from './route';
 import { Provider } from 'react-redux';
+import AddUser from './Adduser';
+import store from './store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 ReactDOM.render(
   <React.StrictMode>
    <Provider store={store}>
       <Home/>
+      <AddUser/>
    </Provider>
   </React.StrictMode>,
   document.getElementById('root')

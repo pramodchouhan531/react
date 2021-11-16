@@ -1,43 +1,46 @@
 import axios from './axios';
 import React, { useEffect, useState } from "react";
-import {BrowserRouter as Router ,Route,Link} from 'react-router-dom';
-import AddUser from './Adduser';
-import { useSelector, useDispatch} from 'react-redux';
-import { getusers } from './actions';
-export default function Users(props) {
-     const users = useSelector(state=>state.users)
-     const dispatch = useDispatch();
- 
-//    const [user, setuser] = useState(null)
-    useEffect(() => {
-        const loaduser = async () => {
-            const res = await axios.get('/users')
-            dispatch(getusers(res.data))
-            console.log("this",props.users)
-      
-        }
-        
-     loaduser();
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-    },[])
-    const {users}=props
+import { useSelector, useDispatch } from 'react-redux';
+import { getusers } from './actions';
+export default function Users() {
+    const record = useSelector(state => state.records)
+    const dispatch = useDispatch();
+
+
+    // const [user, setuser] = useState([])
+    // console.log(user)
+    useEffect(() => {
+      const loaduser = async () => {
+          const res = await axios.get('/users')
+            //  setuser(res.data)
+          dispatch(getusers(res.data))
+
+
+
+        }
+
+        loaduser();
+
+    }, [])
+    
+
     return (
         <div>
-            {users.map((user,index)=>{
+            {record.map((user) => {
                 return (
-                <div>   
-                 <li>{user.id}</li>
-                 <li>{user.name}</li>
-                 <button><Link to={`/users/${user.id}`}>POST</Link></button><br />
-                 <button><Link to={`/todos/${user.id}`}>Todos</Link></button><br />
-               <button> <Link to={`/users/edit/${user.id}`}>Edit</Link></button>
-         
-                   
-                   
-                </div>
-             
-            )})}
-            <AddUser/>  
+                    <div>
+                        <li>{user.id}</li>
+                        <li>{user.name}</li>
+                        <button><Link to={`/users/${user.id}`}>POST</Link></button><br />
+                        <button><Link to={`/todos/${user.id}`}>Todos</Link></button><br />
+                        <button> <Link to={`/users/edit/${user.id}`}>Edit</Link></button>
+                    </div>
+
+                )
+            })}
+ 
         </div>
     )
 }

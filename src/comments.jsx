@@ -1,25 +1,29 @@
 import axios from './axios';
 import React, { useEffect, useState } from "react";
-
-
-
+import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getcomments } from './actions';
 export default function Comments() {
 
-    const [user, setuser] = useState(null)
+    const {postId} = useParams();
+    const comment = useSelector(state=>state.comments)
+    const dispatch = useDispatch() 
     useEffect(() => {
         const loaduser = async () => {
-            const res = await axios.get('/comments')
-            setuser(res.data)
+            const res = await axios.get(`/posts/${postId}/comments`)
+            dispatch(getcomments(res.data))
+           
       
         }
         
      loaduser();
     },[])
-    if(!user)return null;
+    
     
     return (
         <div>
-            {user.map(ele=>{
+            {comment.map(ele=>{
                 return (
                 <div>
                    <li key={ele.id}>{ele.name}</li>
