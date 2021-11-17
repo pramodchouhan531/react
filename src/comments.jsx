@@ -4,22 +4,27 @@ import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getcomments } from './actions';
+
+
+
 export default function Comments() {
 
     const {postId} = useParams();
-    const comment = useSelector(state=>state.comments)
+    
+    const comment = useSelector(state=>state.comments.comments)
     const dispatch = useDispatch() 
     useEffect(() => {
         const loaduser = async () => {
             const res = await axios.get(`/posts/${postId}/comments`)
             dispatch(getcomments(res.data))
+            console.log(res.data)
            
       
         }
         
      loaduser();
     },[])
-    
+    console.log(comment)
     
     return (
         <div>

@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 export default function Posts() {
 
     
-    const post = useSelector(state=>state.post)
+    const post = useSelector(state=>state.postuser.post)
     const dispatch = useDispatch();
     const { user_id } = useParams();
 
@@ -29,12 +29,13 @@ export default function Posts() {
         loaduser();
 
     }, [])
+    
     return (
         <div>
             {post.map((post) => {
                 return (
                     <div>
-                        <li key={post.id}>{post.title}</li><Link to={`/posts/${post.id}`}>comment</Link>
+                        <li key={post.id}>{post.title}</li><Link to={`/posts/${post.id}/comments`}>comment</Link>
                     </div>
 
                 )

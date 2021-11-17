@@ -5,14 +5,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { AddUser } from "./actions";
 const Addperson = () => {
-
-  // const [user, setUser] = useState({
-  //   name: "",
-  //   username: "",
-  //   email: "",
-  //   address: "",
-  // });
-  const items = useSelector(state => state.items)
+  const items = useSelector(state => state.adduser.items)
   console.log(items)
   const dispatch = useDispatch()
   const { name, username, email, address } = items;
@@ -21,7 +14,7 @@ const Addperson = () => {
   };
 
   const onSubmit = async e => {
-    const data=await axios.post("/users",{...items});
+    const data = await axios.post("/users", { ...items });
     e.preventDefault();
     console.log(data)
 
@@ -29,7 +22,7 @@ const Addperson = () => {
   //console.log(items)
   return (
     <>
- 
+
       <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Name</Form.Label>

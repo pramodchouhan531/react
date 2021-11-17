@@ -2,19 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from './axios'
 import { useHistory, useParams } from "react-router-dom";
 import { Button, Form } from 'react-bootstrap';
+import { useSelector } from "react-redux";
+import { edituser } from "./actions";
+import { useDispatch } from "react-redux";
 const EditUser = () => {
-  let history = useHistory();
   const { id } = useParams();
-  const [user, setUser] = useState({
-    name: "",
-    username: "",
-    email: "",
-    address: "",
-  });
-
-  const { name, username, email, address } = user;
+  const data = useSelector(state => state.edituser.data)
+  const dispatch = useDispatch();
+  const { name, username, email, address } = data;
   const onInputChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    dispatch(edituser({ ...data, [e.target.name]: e.target.value }));
   };
 
   useEffect(() => {
@@ -23,14 +20,13 @@ const EditUser = () => {
 
   const onSubmit = async e => {
 
-    await axios.put(`/users/${id}`, user);
-    history.push("/");
+    await axios.put(`/users/${id}`, { ...data });
     e.preventDefault();
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3003/users/${id}`);
-    setUser(result.data);
+    const result = await axios.get(`/users/${id}`);
+    dispatch(edituser(result.data));
   };
   return (
     <Form onSubmit={onSubmit}>

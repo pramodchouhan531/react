@@ -6,16 +6,13 @@ import { useDispatch } from 'react-redux';
 import  {gettodo} from "./actions"
 export default function Todos() {
   //const [user, setuser] = useState(null)
-    const todo = useSelector(state=>state.todo)
+    const todo = useSelector(state=>state.todo.todo)
     const dispatch = useDispatch();
     const {userId}=useParams();
     useEffect(() => {
         const loaduser = async () => {
             const res = await axios.get(`/todos/${userId}/todos`)
             dispatch(gettodo(res.data))
-
-
-      
         }
         
      loaduser();

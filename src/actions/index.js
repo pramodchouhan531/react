@@ -2,6 +2,8 @@ import { GET_COMMENTS, GET_USERS } from "./actiontye";
 import {  ADD_USERS } from "./actiontye";
 import {GET_TODO} from "./actiontye"
 import {GET_POST} from "./actiontye"
+import { EDIT_USERS } from "./actiontye";
+
 
 export const getusers = (payload)=>({
     type:GET_USERS,
@@ -23,5 +25,9 @@ export const getcomments =(payload)=>({
 })
 export const AddUser = (payload)=>({
     type: ADD_USERS,
+    payload
+})
+export const edituser = (payload)=>({
+    type:EDIT_USERS,
     payload
 })

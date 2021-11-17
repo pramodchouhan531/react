@@ -16,13 +16,10 @@ export default function Home() {
                 <Link to="/">users</Link><br />
             </ul>
                  <Route exact path='/' component={Users}/>
-                 <Route exact path='/todos' component={Todos}/>
-                 <Route exact path='/comments' component={Comments}/>
-                 <Route exact path='/posts' component={Posts}/>
-                 <Route exact path="/users/:userId" component={Posts}/>
+                 <Route exact path="/posts/:userId" component={Posts}/>
                  <Route exact path="/Todos/:userId" component={Todos}/>
                  <Route exact path="/users/edit/:id" component={EditUser}/>
-                 <Route exact path="/posts/:postId" component={Comments}></Route>
+                 <Route exact path="/posts/:postId/comments" component={Comments}/>
 
             </Router>
         </div>

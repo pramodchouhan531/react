@@ -1,12 +1,18 @@
 import { combineReducers } from "redux";
-import usersReducers from "./user";
+import  usersReducers from "../reducers/user"
+import todo from "../reducers/todoreducer";
+import postuser from "../reducers/postrducer";
+import comments from "../reducers/commentsred";
+import adduser from "../reducers/addreducer";
+import edituser from "../reducers/edituserreducer";
 
 const rootReducer = combineReducers({
-   data:usersReducers,
-   todo:usersReducers,
-   post:usersReducers,
-   comments:usersReducers,
-   items:usersReducers
+   usersReducers,
+   postuser,
+   todo,
+   comments,
+   adduser,
+   edituser
 
 })
 export default rootReducer;
