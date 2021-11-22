@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import axios from './axios';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { Button, Form } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { AddUser } from "./actions";
+import { requestadduser } from './thunk/adduser';
 const Addperson = () => {
   const items = useSelector(state => state.adduser.items)
   console.log(items)
@@ -14,14 +15,13 @@ const Addperson = () => {
   };
 
   const onSubmit = async e => {
-    const data = await axios.post("/users", { ...items });
     e.preventDefault();
-    console.log(data)
-
+    dispatch(requestadduser())    
+    
   };
   //console.log(items)
   return (
-    <>
+    <div>
 
       <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -41,7 +41,7 @@ const Addperson = () => {
         </Form.Group>
         <Button type="submit" variant="primary">Adduser</Button>
       </Form>
-    </>
+    </div>
   );
 };
 

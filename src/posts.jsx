@@ -1,4 +1,4 @@
-import axios from './axios';
+import { client } from "./thunk/user";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Todos from './todo';
@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import {getpost} from "./actions"
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
+import axios from "axios";
+import { requestpost } from "./thunk/posts";
 
 export default function Posts() {
 
@@ -17,16 +18,15 @@ export default function Posts() {
 
 
     useEffect(() => {
-        const loaduser = async () => {
-            const res = await axios.get(`/posts/${user_id}/posts`)
-            dispatch(getpost(res.data))
+        // const loaduser = async () => {
+        //     const res = await axios.get(`http://localhost:3000/posts/${user_id}/posts`)
+        //     dispatch(getpost(res.data))
            
         
         //    setuser(res.data)
 
-        }
+        dispatch(requestpost(user_id));     
 
-        loaduser();
 
     }, [])
     

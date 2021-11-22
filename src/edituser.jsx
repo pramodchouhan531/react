@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from './axios'
 import { useHistory, useParams } from "react-router-dom";
 import { Button, Form } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { edituser } from "./actions";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 const EditUser = () => {
   const { id } = useParams();
   const data = useSelector(state => state.edituser.data)
@@ -25,7 +25,7 @@ const EditUser = () => {
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`/users/${id}`);
+    const result = await  axios.get(`/users/${id}`);
     dispatch(edituser(result.data));
   };
   return (

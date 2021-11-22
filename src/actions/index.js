@@ -1,4 +1,4 @@
-import { GET_COMMENTS, GET_USERS } from "./actiontye";
+import { FETCH_USER, GET_COMMENTS, GET_USERS } from "./actiontye";
 import {  ADD_USERS } from "./actiontye";
 import {GET_TODO} from "./actiontye"
 import {GET_POST} from "./actiontye"

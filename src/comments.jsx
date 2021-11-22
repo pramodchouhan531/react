@@ -1,10 +1,11 @@
-import axios from './axios';
+import { client } from "./thunk/user";
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getcomments } from './actions';
-
+import axios from "axios";
+import { requestcomment } from "./thunk/comments";
 
 
 export default function Comments() {
@@ -15,9 +16,8 @@ export default function Comments() {
     const dispatch = useDispatch() 
     useEffect(() => {
         const loaduser = async () => {
-            const res = await axios.get(`/posts/${postId}/comments`)
-            dispatch(getcomments(res.data))
-            console.log(res.data)
+         
+            dispatch(requestcomment(postId)); 
            
       
         }

@@ -1,26 +1,20 @@
-import axios from './axios';
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getusers } from './actions';
+import { requestUsers } from './thunk/user';
 export default function Users() {
     const record = useSelector(state => state.usersReducers.records)
     const dispatch = useDispatch();
-
+    
 
     // const [user, setuser] = useState([])
     // console.log(user)
     useEffect(() => {
-      const loaduser = async () => {
-          const res = await axios.get('/users')
+     // const loaduser = async () => {
+        //   const res = await axios.get('/users')
             //  setuser(res.data)
-          dispatch(getusers(res.data))
-
-
-
-        }
-
-        loaduser();
+        //   dispatch(getusers(res.data))
+        dispatch(requestUsers());
 
     }, [])
     
