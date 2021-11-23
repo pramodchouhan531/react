@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { edituser } from "./actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { requestedituser,getadd } from "./thunk/edituser";
 const EditUser = () => {
   const { id } = useParams();
   const data = useSelector(state => state.edituser.data)
@@ -15,19 +16,14 @@ const EditUser = () => {
   };
 
   useEffect(() => {
-    loadUser();
+    dispatch(getadd(data,id))
   }, []);
 
   const onSubmit = async e => {
-
-    await axios.put(`/users/${id}`, { ...data });
+    requestedituser(data,id)
     e.preventDefault();
   };
 
-  const loadUser = async () => {
-    const result = await  axios.get(`/users/${id}`);
-    dispatch(edituser(result.data));
-  };
   return (
     <Form onSubmit={onSubmit}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

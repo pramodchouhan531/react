@@ -16,7 +16,7 @@ const Addperson = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    dispatch(requestadduser())    
+    dispatch(requestadduser(items))    
     
   };
   //console.log(items)
